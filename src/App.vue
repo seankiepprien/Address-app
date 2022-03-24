@@ -1,26 +1,19 @@
-<script setup>
-import { ref } from 'vue'
-
-let counter = ref(0)
-
-setInterval(() => {
-  counter.value++
-}, 1000)
-</script>
-
 <template>
-  <div>
-    <header class="bg-white shadow" v-if="$route.meta.title">
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1
-          @click="counter = 0"
-          class="text-3xl font-bold leading-tight text-gray-900"
-        >
-          {{ $route.meta.title }} / {{ counter }}
-        </h1>
+  <div id="app">
+    <nav class="m-auto flex flex-col text-center p-4">
+      <router-link to="/" class="font-bold text-4xl border-b-2 pb-2">Fullstack App</router-link>
+      <div class="flex flex-col mt-5">
+        <li class="list-none">
+          <router-link to="/addresses" class="text-blue-400 hover:text-blue-800 transition-all text-3xl p-2">Addresses</router-link>
+        </li>
+        <li class="list-none mt-2">
+          <router-link to="/add" class="text-blue-400 hover:text-blue-800 transition-all text-3xl p-2">Add</router-link>
+        </li>
       </div>
+    </nav>
+    <header>
     </header>
-    <main>
+    <main class="flex mt-3">
       <router-view />
     </main>
   </div>
